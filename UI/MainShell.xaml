@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="UI.MainShell"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:UI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Grid BorderBrush="Black" BorderThickness="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <muxc:NavigationView Grid.RowSpan="2" />
+        <TextBlock
+            x:Name="HelloWorldTextBlock"
+            Margin="50"
+            HorizontalAlignment="Center"
+            Text="Hello World!" />
+
+        <muxc:TeachingTip
+            x:Name="ToggleThemeTeachingTip1"
+            Title="Change themes without hassle"
+            IsOpen="{x:Bind IsOpen, Mode=OneWay}"
+            Subtitle="It's easier than ever to see control samples in both light and dark theme!"
+            Target="{x:Bind HelloWorldTextBlock}">
+            <muxc:TeachingTip.IconSource>
+                <muxc:SymbolIconSource Symbol="Refresh" />
+            </muxc:TeachingTip.IconSource>
+        </muxc:TeachingTip>
+
+        <Button
+            x:Name="SaveButton"
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            Click="SaveButton_Click"
+            Content="Save">
+            <!--<Button.Resources>
+                <muxc:TeachingTip
+                    x:Name="AutoSaveTip"
+                    Title="Save automatically"
+                    Subtitle="When you save your file to OneDrive, we save your changes as you go - so you never have to."
+                    Target="{x:Bind SaveButton}" />
+            </Button.Resources>-->
+        </Button>
+    </Grid>
+</Page>
